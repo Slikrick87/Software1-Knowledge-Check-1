@@ -9,7 +9,7 @@ namespace KnowledgeCheck1_Calculator
 {
     public class Calculator
     {
-        List <String> list = new List <String> ();
+        List<String> list = new List<String>();
         public int Add(string first, string second)
         {
             Console.Write($"{first.ConvertNumber()} + {second.ConvertNumber()} = ");
@@ -20,7 +20,7 @@ namespace KnowledgeCheck1_Calculator
         {
             Console.Write($"{first.ConvertNumber()} - {second.ConvertNumber()} = ");
             return first.ConvertNumber() - second.ConvertNumber();
-            
+
         }
 
         public int Multiply(string first, string second)
@@ -31,7 +31,7 @@ namespace KnowledgeCheck1_Calculator
 
         public double Divide(string first, string second)
         {
-            Console.Write($"{first.ConvertNumber()} / {second.ConvertNumber()} = ");
+            Console.Write($"{first.ConvertToDecimal()} / {second.ConvertToDecimal()}");
             return first.ConvertNumber() / second.ConvertNumber();
         }
         public bool CheckNumber(string num, string num2)
@@ -45,7 +45,7 @@ namespace KnowledgeCheck1_Calculator
 
     }
     public static class CalculatorExtensions
-    { 
+    {
         //public static bool CheckNumber(this string num, this string num2)
         //{
         //    try { int.TryParse(num, out int numOne); return true; }
@@ -53,9 +53,15 @@ namespace KnowledgeCheck1_Calculator
         //}
         public static int ConvertNumber(this string num)
         {
-        
-                int.TryParse(num, out int numOne); return numOne; }
-        
+
+            int.TryParse(num, out int numOne); return numOne;
+        }
+
+
+        public static decimal ConvertToDecimal(this string num)
+        {
+            decimal.TryParse(num, out decimal numOne); return numOne;
         }
     }
+}
 
