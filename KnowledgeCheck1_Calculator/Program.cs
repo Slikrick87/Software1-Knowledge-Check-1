@@ -39,6 +39,7 @@ namespace KnowledgeCheck1_Calculator
                         Console.WriteLine(calculator.Add(number1, number2));
                         break;
                         
+                    
                     case "-":
                         {
                             do
