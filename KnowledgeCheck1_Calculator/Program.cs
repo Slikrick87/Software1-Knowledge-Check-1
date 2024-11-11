@@ -15,73 +15,33 @@ namespace KnowledgeCheck1_Calculator
             Console.WriteLine("Welcome To Math World New Comer!!");
             
             string input = String.Empty;
-            var calculator = new Calculator();
             string quitPrompt = String.Empty;
-            var number1 = string.Empty;
-            var number2 = "";
             do
             {
-                Console.WriteLine("Press + for addition, - for subtraction, * for multiplication, and / for division");
+                Console.WriteLine("Please only use the following + for addition, - for subtraction, * for multiplication, and / for division");
                 input = Console.ReadLine();
                 switch (input)
                 {
                     case "+":
-                        do
-                        {
-                            if (calculator.CheckNumber(number1, number2) == false)
-                            { Console.WriteLine("Invalid Input! Try Again!"); }
-                            Console.WriteLine("Enter 2 integers to add");
-                            //calculator.GetNumbers(Console.ReadLine(), Console.ReadLine());
-                            number1 = Console.ReadLine();
-                            number2 = Console.ReadLine();
-                        } while (calculator.CheckNumber(number1, number2) == false);
-
-                        Console.WriteLine(calculator.Add(number1, number2));
+                        GetNumbers.AddNumbers();
                         break;
                         
                     
                     case "-":
                         {
-                            do
-                            {
-                                if (calculator.CheckNumber(number1, number2) == false)
-                                { Console.WriteLine("Invalid Input! Try Again!"); }
-                                Console.WriteLine("Enter 2 integers to subtract");
-                                number1 = Console.ReadLine();
-                                number2 = Console.ReadLine();
-                            } while (calculator.CheckNumber(number1, number2) == false);
-
-                            Console.WriteLine(calculator.Subtract(number1, number2));
+                            GetNumbers.SubtractNumbers();
                             break;
                         }
 
                     case "*":
                         {
-                            do
-                            {
-                                if (calculator.CheckNumber(number1, number2) == false)
-                                { Console.WriteLine("Invalid Input! Try Again!"); }
-                                Console.WriteLine("Enter 2 integers to Multiply");
-                                number1 = Console.ReadLine();
-                                number2 = Console.ReadLine();
-                            } while (calculator.CheckNumber(number1, number2) == false);
-
-                            Console.WriteLine(calculator.Multiply(number1, number2));
+                            GetNumbers.MultiplyNumbers();
                             break;
                         }
 
                     case "/":
                         {
-                            do
-                            {
-                                if (calculator.CheckNumber(number1, number2) == false)
-                                { Console.WriteLine("Invalid Input! Try Again!"); }
-                                Console.WriteLine("Enter 2 integers to divide");
-                                number1 = Console.ReadLine();
-                                number2 = Console.ReadLine();
-                            } while (calculator.CheckNumber(number1, number2) == false);
-                            
-                            Console.WriteLine(calculator.Divide(number1, number2));
+                            GetNumbers.DivideNumbers();
                             break;
                         }
 
@@ -93,10 +53,13 @@ namespace KnowledgeCheck1_Calculator
                         }
 
                 }
-                        Console.WriteLine("Wanna Do More Math?");
-                        quitPrompt = Console.ReadLine();
-                
-            
+                do
+                {
+                    Console.WriteLine("\nWanna Do More Math?");
+                    quitPrompt = Console.ReadLine();
+                } while (!quitPrompt.ToLower().StartsWith("y") || (!quitPrompt.ToLower().StartsWith("y")));
+
+
             } while (quitPrompt.ToLower().StartsWith("y"));
         }
     }

@@ -7,60 +7,103 @@ using System.Threading.Tasks;
 
 namespace KnowledgeCheck1_Calculator
 {
-    public class Calculator
+    public static class Calculator
     {
-        List<String> list = new List<String>();
-        public int Add(string first, string second)
+        public static decimal ConvertNumber(this string num)
         {
-            Console.Write($"{first.ConvertNumber()} + {second.ConvertNumber()} = ");
-            return first.ConvertNumber() + second.ConvertNumber();
+            decimal.TryParse(num, out decimal numOne); return numOne;
         }
 
-        public int Subtract(string first, string second)
+        public static bool CheckNumber(this string num)
         {
-            Console.Write($"{first.ConvertNumber()} - {second.ConvertNumber()} = ");
-            return first.ConvertNumber() - second.ConvertNumber();
-
+                try { int.TryParse(num, out int numOne); return true; }
+                catch { return false; }
         }
-
-        public int Multiply(string first, string second)
-        {
-            Console.Write($"{first.ConvertNumber()} * {second.ConvertNumber()} = ");
-            return first.ConvertNumber() * second.ConvertNumber();
-        }
-
-        public double Divide(string first, string second)
-        {
-            Console.Write($"{first.ConvertToDecimal()} / {second.ConvertToDecimal()}");
-            return first.ConvertNumber() / second.ConvertNumber();
-        }
-        public bool CheckNumber(string num, string num2)
-        {
-            try { int.TryParse(num, out int numOne); return true; }
-            catch { return false; }
-        }
-        //public List<string> GetNumbers(string number, string number2)
-        //{ list.Add (number); list.Add (number2);
-        //    return list; }
-
-    }
-    public static class CalculatorExtensions
-    {
-        //public static bool CheckNumber(this string num, this string num2)
-        //{
-        //    try { int.TryParse(num, out int numOne); return true; }
-        //    catch { return false; }
-        //}
-        public static int ConvertNumber(this string num)
-        {
-
-            int.TryParse(num, out int numOne); return numOne;
-        }
-
-
+        public static decimal Subtract(decimal first, decimal second)   {   return first - second;  }
+        public static decimal Add(decimal first, decimal second) {   return first + second;  }
+        public static decimal Divide(decimal first, decimal second) {   return first / second; }
+        public static decimal Multiply(decimal first, decimal second) {    return second * first; }
         public static decimal ConvertToDecimal(this string num)
         {
             decimal.TryParse(num, out decimal numOne); return numOne;
+        }
+    }
+    public static class GetNumbers
+    {
+        public static void SubtractNumbers()
+        {
+            String numOne;
+            String numTwo;
+            do
+            {
+                Console.WriteLine("Enter Two Numbers to Subtract.");
+                numOne = Console.ReadLine();
+                numTwo = Console.ReadLine();
+                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
+                { Console.WriteLine("Invalid Input!"); }
+                
+            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
+            decimal num1 = numOne.ConvertNumber();
+            decimal num2 = numTwo.ConvertNumber();
+            Console.Write($"{num1} - {num2} = ");
+            Console.WriteLine(Calculator.Subtract(num1, num2));
+        }
+
+        public static void AddNumbers()
+        {
+            String numOne;
+            String numTwo;
+            do
+            {
+                Console.WriteLine("Enter Two Numbers to Add.");
+                numOne = Console.ReadLine();
+                numTwo = Console.ReadLine();
+                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
+                { Console.WriteLine("Invalid Input!"); }
+
+            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
+            decimal num1 = numOne.ConvertNumber();
+            decimal num2 = numTwo.ConvertNumber();
+            Console.Write($"{num1} + {num2} = ");
+            Console.WriteLine(Calculator.Add(num1, num2));
+        }
+
+        public static void MultiplyNumbers()
+        {
+            String numOne;
+            String numTwo;
+            do
+            {
+                Console.WriteLine("Enter Two Numbers to Multiply.");
+                numOne = Console.ReadLine();
+                numTwo = Console.ReadLine();
+                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
+                { Console.WriteLine("Invalid Input!"); }
+
+            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
+            decimal num1 = numOne.ConvertNumber();
+            decimal num2 = numTwo.ConvertNumber();
+            Console.Write($"{num1} * {num2} = ");
+            Console.WriteLine(Calculator.Multiply(num1, num2));
+        }
+
+        public static void DivideNumbers()
+        {
+            String numOne;
+            String numTwo;
+            do
+            {
+                Console.WriteLine("Enter Two Numbers to Divide.");
+                numOne = Console.ReadLine();
+                numTwo = Console.ReadLine();
+                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
+                { Console.WriteLine("Invalid Input!"); }
+
+            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
+            decimal num1 = numOne.ConvertNumber();
+            decimal num2 = numTwo.ConvertNumber();
+            Console.Write($"{num1} / {num2} = ");
+            Console.WriteLine(Calculator.Divide(num1, num2));
         }
     }
 }
