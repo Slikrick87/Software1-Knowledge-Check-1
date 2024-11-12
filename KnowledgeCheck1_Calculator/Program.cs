@@ -12,43 +12,45 @@ namespace KnowledgeCheck1_Calculator
         static void Main(string[] args)
         {
             
-            Console.WriteLine("Welcome To Math World New Comer!!");
+            Console.WriteLine("Hey Bud, Welcome To Math World!!");
             
             string input = String.Empty;
             string quitPrompt = String.Empty;
             do
             {
-                Console.WriteLine("Please only use the following + for addition, - for subtraction, * for multiplication, and / for division");
+                Console.WriteLine("What Type Of Problem Do You Have? (Math Only Please!)");
+                Console.WriteLine("\nPlease only use the following operands.");
+                Console.WriteLine("[+ addition], [- subtraction], \n[* multiplication], [/ for division]");
                 input = Console.ReadLine();
                 switch (input)
                 {
                     case "+":
-                        GetNumbers.AddNumbers();
+                        Calculator.AddNumbers();
                         break;
                         
                     
                     case "-":
                         {
-                            GetNumbers.SubtractNumbers();
+                            Calculator.SubtractNumbers();
                             break;
                         }
 
                     case "*":
                         {
-                            GetNumbers.MultiplyNumbers();
+                            Calculator.MultiplyNumbers();
                             break;
                         }
 
                     case "/":
                         {
-                            GetNumbers.DivideNumbers();
+                            Calculator.DivideNumbers();
                             break;
                         }
 
                     default:
 
                         {
-                            Console.WriteLine("Unknown input");
+                            Console.WriteLine("Unknown Input Dude!");
                             break;
                         }
 
@@ -57,7 +59,7 @@ namespace KnowledgeCheck1_Calculator
                 {
                     Console.WriteLine("\nWanna Do More Math?");
                     quitPrompt = Console.ReadLine();
-                } while (!quitPrompt.ToLower().StartsWith("y") || (!quitPrompt.ToLower().StartsWith("y")));
+                } while (!quitPrompt.ToLower().StartsWith("y") && !quitPrompt.ToLower().StartsWith("n"));
 
 
             } while (quitPrompt.ToLower().StartsWith("y"));

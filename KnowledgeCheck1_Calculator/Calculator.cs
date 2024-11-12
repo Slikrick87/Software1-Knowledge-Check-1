@@ -27,17 +27,17 @@ namespace KnowledgeCheck1_Calculator
         {
             decimal.TryParse(num, out decimal numOne); return numOne;
         }
-    }
-    public static class GetNumbers
-    {
+    
         public static void SubtractNumbers()
         {
             String numOne;
             String numTwo;
             do
             {
-                Console.WriteLine("Enter Two Numbers to Subtract.");
+                Console.WriteLine("Subtraction Selected.");
+                Console.Write("Enter First Number: ");
                 numOne = Console.ReadLine();
+                Console.Write("Enter Second Number: ");
                 numTwo = Console.ReadLine();
                 if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
                 { Console.WriteLine("Invalid Input!"); }
@@ -55,8 +55,10 @@ namespace KnowledgeCheck1_Calculator
             String numTwo;
             do
             {
-                Console.WriteLine("Enter Two Numbers to Add.");
+                Console.WriteLine("Addition Selected.");
+                Console.Write("Enter First Number: ");
                 numOne = Console.ReadLine();
+                Console.Write("Enter Second Number: ");
                 numTwo = Console.ReadLine();
                 if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
                 { Console.WriteLine("Invalid Input!"); }
@@ -74,8 +76,10 @@ namespace KnowledgeCheck1_Calculator
             String numTwo;
             do
             {
-                Console.WriteLine("Enter Two Numbers to Multiply.");
+                Console.WriteLine("Multiplication Selected.");
+                Console.Write("Enter First Number: ");
                 numOne = Console.ReadLine();
+                Console.Write("Enter Second Number: ");
                 numTwo = Console.ReadLine();
                 if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
                 { Console.WriteLine("Invalid Input!"); }
@@ -89,20 +93,29 @@ namespace KnowledgeCheck1_Calculator
 
         public static void DivideNumbers()
         {
-            String numOne;
-            String numTwo;
+            String numOne = "";
+            String numTwo = "";
             do
             {
-                Console.WriteLine("Enter Two Numbers to Divide.");
-                numOne = Console.ReadLine();
-                numTwo = Console.ReadLine();
+                do
+                {
+                    if (numOne == "0" || numTwo == "0")
+                    {
+                        Console.WriteLine("Can't Divide By Zero!");
+                    }
+                    Console.WriteLine("\nDivision Selected.");
+                    Console.Write("\nEnter First Number: ");
+                    numOne = Console.ReadLine();
+                    Console.Write("Enter Second Number: ");
+                    numTwo = Console.ReadLine();
+                } while (numOne == "0" || numTwo == "0" ||numOne == "" || numTwo == "");
                 if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
                 { Console.WriteLine("Invalid Input!"); }
 
             } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
             decimal num1 = numOne.ConvertNumber();
             decimal num2 = numTwo.ConvertNumber();
-            Console.Write($"{num1} / {num2} = ");
+            Console.Write($"\n{num1} / {num2} = ");
             Console.WriteLine(Calculator.Divide(num1, num2));
         }
     }
