@@ -34,8 +34,8 @@ namespace KnowledgeCheck1_Calculator
             String numTwo;
             do
             {
-                Console.WriteLine("Subtraction Selected.");
-                Console.Write("Enter First Number: ");
+                Console.WriteLine("\nSubtraction Selected.");
+                Console.Write("\nEnter First Number: ");
                 numOne = Console.ReadLine();
                 Console.Write("Enter Second Number: ");
                 numTwo = Console.ReadLine();
@@ -55,8 +55,8 @@ namespace KnowledgeCheck1_Calculator
             String numTwo;
             do
             {
-                Console.WriteLine("Addition Selected.");
-                Console.Write("Enter First Number: ");
+                Console.WriteLine("\nAddition Selected.");
+                Console.Write("\nEnter First Number: ");
                 numOne = Console.ReadLine();
                 Console.Write("Enter Second Number: ");
                 numTwo = Console.ReadLine();
@@ -76,8 +76,8 @@ namespace KnowledgeCheck1_Calculator
             String numTwo;
             do
             {
-                Console.WriteLine("Multiplication Selected.");
-                Console.Write("Enter First Number: ");
+                Console.WriteLine("\nMultiplication Selected.");
+                Console.Write("\nEnter First Number: ");
                 numOne = Console.ReadLine();
                 Console.Write("Enter Second Number: ");
                 numTwo = Console.ReadLine();
