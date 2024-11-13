@@ -30,93 +30,54 @@ namespace KnowledgeCheck1_Calculator
     
         public static void SubtractNumbers()
         {
-            String numOne;
-            String numTwo;
-            do
-            {
-                Console.WriteLine("\nSubtraction Selected.");
-                Console.Write("\nEnter First Number: ");
-                numOne = Console.ReadLine();
-                Console.Write("Enter Second Number: ");
-                numTwo = Console.ReadLine();
-                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
-                { Console.WriteLine("Invalid Input!"); }
-                
-            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
-            decimal num1 = numOne.ConvertNumber();
-            decimal num2 = numTwo.ConvertNumber();
+            decimal num1 = Calculator.GetNumber();
+            decimal num2 = Calculator.GetNumber();
             Console.Write($"{num1} - {num2} = ");
             Console.WriteLine(Calculator.Subtract(num1, num2));
         }
 
         public static void AddNumbers()
         {
-            String numOne;
-            String numTwo;
-            do
-            {
-                Console.WriteLine("\nAddition Selected.");
-                Console.Write("\nEnter First Number: ");
-                numOne = Console.ReadLine();
-                Console.Write("Enter Second Number: ");
-                numTwo = Console.ReadLine();
-                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
-                { Console.WriteLine("Invalid Input!"); }
-
-            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
-            decimal num1 = numOne.ConvertNumber();
-            decimal num2 = numTwo.ConvertNumber();
+            decimal num1 = Calculator.GetNumber();
+            decimal num2 = Calculator.GetNumber();
             Console.Write($"{num1} + {num2} = ");
             Console.WriteLine(Calculator.Add(num1, num2));
         }
 
         public static void MultiplyNumbers()
         {
-            String numOne;
-            String numTwo;
-            do
-            {
-                Console.WriteLine("\nMultiplication Selected.");
-                Console.Write("\nEnter First Number: ");
-                numOne = Console.ReadLine();
-                Console.Write("Enter Second Number: ");
-                numTwo = Console.ReadLine();
-                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
-                { Console.WriteLine("Invalid Input!"); }
-
-            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
-            decimal num1 = numOne.ConvertNumber();
-            decimal num2 = numTwo.ConvertNumber();
+            decimal num1 = Calculator.GetNumber();
+            decimal num2 = Calculator.GetNumber();
             Console.Write($"{num1} * {num2} = ");
             Console.WriteLine(Calculator.Multiply(num1, num2));
         }
 
         public static void DivideNumbers()
         {
-            String numOne = "";
-            String numTwo = "";
-            do
-            {
-                do
-                {
-                    if (numOne == "0" || numTwo == "0")
-                    {
-                        Console.WriteLine("Can't Divide By Zero!");
-                    }
-                    Console.WriteLine("\nDivision Selected.");
-                    Console.Write("\nEnter First Number: ");
-                    numOne = Console.ReadLine();
-                    Console.Write("Enter Second Number: ");
-                    numTwo = Console.ReadLine();
-                } while (numOne == "0" || numTwo == "0" ||numOne == "" || numTwo == "");
-                if (numOne.CheckNumber() == false || numTwo.CheckNumber() == false)
-                { Console.WriteLine("Invalid Input!"); }
-
-            } while (numOne.CheckNumber() == false || numTwo.CheckNumber() == false);
-            decimal num1 = numOne.ConvertNumber();
-            decimal num2 = numTwo.ConvertNumber();
+            decimal num1 = 0;
+            decimal num2 = 0;
+            do {
+                if (num1 == 0 || num2 == 0)
+                { Console.WriteLine("Can't Divide by Zero By The Way!"); }
+                num1 = Calculator.GetNumber();
+                num2 = Calculator.GetNumber();
+            } while (num1 == 0 || num2  == 0);
             Console.Write($"\n{num1} / {num2} = ");
             Console.WriteLine(Calculator.Divide(num1, num2));
+        }
+
+        public static decimal GetNumber()
+        {
+            String numOne;
+            do
+            {
+                Console.Write("\nEnter Number: ");
+                numOne = Console.ReadLine();
+                if (numOne.CheckNumber() == false)
+                { Console.WriteLine("Invalid Input!"); }
+
+            } while (numOne.CheckNumber() == false);
+            return numOne.ConvertNumber();
         }
     }
 }
